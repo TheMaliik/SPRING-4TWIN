@@ -18,6 +18,7 @@ import java.util.List;
 public class InstructorRestController {
 
     private final IinstructorServices instructorServices;
+
     @PostMapping("/add")
     public Instructor saveInstructor(@RequestBody Instructor instructor){
         return instructorServices.AddInstructor(instructor);
@@ -45,6 +46,20 @@ public class InstructorRestController {
     @DeleteMapping("/delete/{numInstructor}")
     public void deleteInstructor(@PathVariable Long numInstructor) {
         instructorServices.removeInstructor(numInstructor);
+    }
+
+
+    @PostMapping("/add/assignCourse/{courseIds}")
+    public Instructor addAndAssignToCourses(
+            @RequestBody Instructor ins,
+            @PathVariable List<Long> courseIds) {
+
+        return instructorServices.AddAndAsignToCourses(ins, courseIds);
+    }
+
+    @PostMapping("/add/assignCourse")
+    public Instructor AddAndAsignCourses(@RequestBody Instructor ins){
+        return instructorServices.addAndAssignCourses(ins);
     }
 
 

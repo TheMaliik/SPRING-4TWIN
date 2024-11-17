@@ -13,7 +13,7 @@ import java.util.Set;
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity
-@Table(name = "t_skier")
+//@Table(name = "t_skier")
 public class Skier {
 
     @Id
@@ -28,11 +28,11 @@ public class Skier {
     @OneToOne(cascade = {CascadeType.PERSIST , CascadeType.REMOVE})
     Subscription subscription;
 
-@OneToMany(mappedBy = "skier" , fetch = FetchType.EAGER)
-Set<Registration> registrations;
+    @OneToMany(mappedBy = "skier" , fetch = FetchType.EAGER)
+    Set<Registration> registrations;
 
 
-@ManyToMany(mappedBy = "skiers")
-Set<Piste> pistes;
+    @ManyToMany(mappedBy = "skiers")
+    Set<Piste> pistes;
 
 }

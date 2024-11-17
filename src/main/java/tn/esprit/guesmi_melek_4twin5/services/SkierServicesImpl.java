@@ -2,19 +2,22 @@ package tn.esprit.guesmi_melek_4twin5.services;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import tn.esprit.guesmi_melek_4twin5.entities.Piste;
-import tn.esprit.guesmi_melek_4twin5.entities.Skier;
-import tn.esprit.guesmi_melek_4twin5.repositories.IPisteRepository;
-import tn.esprit.guesmi_melek_4twin5.repositories.ISkierRepository;
+import tn.esprit.guesmi_melek_4twin5.entities.Registration;
+import tn.esprit.guesmi_melek_4twin5.entities.*;
+import tn.esprit.guesmi_melek_4twin5.repositories.*;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 @RequiredArgsConstructor
 @Service
 public class SkierServicesImpl implements IskierServices {
     private final ISkierRepository skierRepository;
     private final IPisteRepository pisteRepository;
+    private final ISubscriptionRepository subscriptionRepository;
+    private final ICourseRepository courseRepository;
+    private final IRegistrationRepository registrationRepository;
     public Skier addSkier(Skier skier){
         return skierRepository.save(skier);
     }
@@ -63,6 +66,7 @@ public class SkierServicesImpl implements IskierServices {
     public Skier findByBirthDate(LocalDate birthDate) {
         return skierRepository.findByBirthDate(birthDate);
     }
+
 
 
 

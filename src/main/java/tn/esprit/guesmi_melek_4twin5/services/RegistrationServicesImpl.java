@@ -64,4 +64,21 @@ public class RegistrationServicesImpl implements IregistrationServices {
     }
 
 
+    public Skier addSkierAndAssignToCourse(Skier skier, Long numCourse) {
+        Skier savedSkier = skierRepository.save(skier);
+        Course course = courseRepository.findById(numCourse)
+                .orElse(null);
+
+        Registration registration = new Registration();
+        registration.setSkier(savedSkier);
+        registration.setCourse(course);
+
+        registrationRepository.save(registration);
+
+        savedSkier.getRegistrations().add(registration);
+        return skierRepository.save(savedSkier);
+    }
+
+
+
 }

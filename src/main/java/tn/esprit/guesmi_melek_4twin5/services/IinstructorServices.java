@@ -15,4 +15,11 @@ public interface IinstructorServices {
 
     void removeInstructor(Long numInstructor);
 
+    Instructor AddAndAsignToCourses(Instructor ins,List<Long> numCourses);
+
+    Instructor addAndAssignCourses(Instructor ins);
+
+
+
+
 }

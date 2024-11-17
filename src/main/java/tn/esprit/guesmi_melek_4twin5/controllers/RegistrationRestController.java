@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.guesmi_melek_4twin5.entities.Registration;
+import tn.esprit.guesmi_melek_4twin5.entities.Skier;
 import tn.esprit.guesmi_melek_4twin5.services.IregistrationServices;
 import tn.esprit.guesmi_melek_4twin5.services.RegistrationServicesImpl;
 
@@ -56,6 +57,17 @@ public class RegistrationRestController {
     }
 
 
+    @PostMapping("/addSkier/AssignCourse/{numCourse}")
+    public Skier addSkierAndAssignToCourse(@RequestBody Skier skier,@PathVariable Long numCourse){
+
+        return registrationServices.addSkierAndAssignToCourse(skier, numCourse);
+    }
+
+
 
 
 }
+
+
+
+
