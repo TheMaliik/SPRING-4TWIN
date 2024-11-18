@@ -1,6 +1,7 @@
 package tn.esprit.guesmi_melek_4twin5.services;
 
 import tn.esprit.guesmi_melek_4twin5.entities.Skier;
+import tn.esprit.guesmi_melek_4twin5.entities.TypeSubscription;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -22,7 +23,7 @@ public interface IskierServices {
     Skier findByBirthDate(LocalDate birthDate );
 
 
-
+    List<Skier> retrieveSkiersBySubscriptionType(TypeSubscription subscriptionType);
 
 
 

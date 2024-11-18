@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.guesmi_melek_4twin5.entities.Skier;
+import tn.esprit.guesmi_melek_4twin5.entities.TypeSubscription;
 import tn.esprit.guesmi_melek_4twin5.services.IskierServices;
 import tn.esprit.guesmi_melek_4twin5.services.SkierServicesImpl;
 
@@ -65,7 +66,10 @@ public class SkierRestController {
     }
 
 
-
+    @GetMapping("/by-subscription")
+    public List<Skier> getSkiersBySubscriptionType(@RequestParam TypeSubscription typeSubscription) {
+        return skierServices.retrieveSkiersBySubscriptionType(typeSubscription);
+    }
 
 
 }

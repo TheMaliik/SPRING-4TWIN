@@ -4,10 +4,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.guesmi_melek_4twin5.entities.Subscription;
+import tn.esprit.guesmi_melek_4twin5.entities.TypeSubscription;
 import tn.esprit.guesmi_melek_4twin5.services.IsubscriptionServices;
 import tn.esprit.guesmi_melek_4twin5.services.SubscriptionServicesImpl;
 
 import java.util.List;
+import java.util.Set;
 
 @RequiredArgsConstructor
 @RequestMapping("subscription")
@@ -41,4 +43,15 @@ public class SubscriptionRestController {
     public void deleteSubscription(@PathVariable Long numSubscription) {
         subscriptionServices.removeSubscription(numSubscription);
     }
+
+
+
+    @GetMapping("/by-type")
+    public Set<Subscription> getSubscriptionsByType(@RequestParam TypeSubscription type) {
+
+        return subscriptionServices.getSubscriptionByType(type);
+    }
+
+
+
 }
